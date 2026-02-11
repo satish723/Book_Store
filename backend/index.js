@@ -8,18 +8,19 @@ dotenv.config();
 const app=express();
 app.get('/',(req,res)=>
     {
+        console.log("main page")
         res.status(200).send("route page");
     })
     app.use(express.json());
     app.use(cors())
-    app.use('/book',route)
+    app.use('/books',route)
 async function main(){
     try{
         await mongoose.connect(process.env.mongoDbUrl);
         console.log("success in connection")
         app.listen(PORT,()=>
         {
-            console.log("sever running on http://localhost:3000");
+            console.log(`server running on http://localhost:${PORT}`);
         })
         }
         catch(err)

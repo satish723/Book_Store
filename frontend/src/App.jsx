@@ -1,8 +1,19 @@
 import React from 'react'
-
+import {Routes,Route} from 'react-router-dom';
+import Home from './pages/Home';
+import CreateBook from './pages/CreateBook';
+import Showdetails from './pages/Showdetails';
+import EditBook from './pages/EditBook';
+import DeleteBook from './pages/DeleteBook';
 function App() {
   return (
-    <div className="bg-red-600">App</div>
+    <Routes>
+      <Route path='/' element={<Home/>}></Route>
+      <Route path='/books/create' element={<CreateBook/>}></Route>
+      <Route path='/books/details/:id' element={<Showdetails/>}></Route>
+      <Route path='/books/edit/:id' element={<EditBook/>}></Route>
+      <Route path='/books/delete/:id' element={<DeleteBook/>}></Route>
+    </Routes>
   )
 }
 
